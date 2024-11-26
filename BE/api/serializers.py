@@ -1,22 +1,26 @@
 from rest_framework import serializers
-from .models import People, Locations, Events, Relationships
+from .models import People, Events, Relationships
 
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        fields = '__all__'
+        fields = ['id', 'name', 'description', 'people_image']
 
-class LocationsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Locations
-        fields = '__all__'
-
-class EventsSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Events
-        fields = '__all__'
+        fields = ['id', 'title', 'date', 'description', 'event_image']
 
-class RelationshipsSerializer(serializers.ModelSerializer):
+class EventDetailSerializer(serializers.ModelSerializer):
+    location_name = serializers.CharField(source='location.name')
+    latitude = serializers.DecimalField(source='location.latitude', max_digits=9, decimal_places=6)
+    longitude = serializers.DecimalField(source='location.longitude', max_digits=9, decimal_places=6)
+
     class Meta:
-        model = Relationships
-        fields = '__all__'
+        model = Events
+        fields = ['id', 'title', 'date', 'description', 'location_name', 'latitude', 'longitude']
+
+class SearchEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Events
+        fields = ['id', 'title', 'description', 'date']
