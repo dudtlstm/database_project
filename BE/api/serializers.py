@@ -4,12 +4,12 @@ from .models import People, Events, Relationships
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        fields = ['id', 'name', 'description', 'people_image']
+        fields = ['person_id', 'name', 'description', 'people_image']
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Events
-        fields = ['id', 'title', 'date', 'description', 'event_image']
+        fields = ['event_id', 'title', 'date', 'description', 'event_image']
 
 class EventDetailSerializer(serializers.ModelSerializer):
     location_name = serializers.CharField(source='location.name')
@@ -18,9 +18,9 @@ class EventDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Events
-        fields = ['id', 'title', 'date', 'description', 'location_name', 'latitude', 'longitude']
+        fields = ['event_id', 'title', 'date', 'description', 'location_name', 'latitude', 'longitude']
 
 class SearchEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Events
-        fields = ['id', 'title', 'description', 'date']
+        fields = ['event_id', 'title', 'description', 'date']

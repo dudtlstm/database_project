@@ -37,7 +37,21 @@ DEBUG = env('DEBUG')
 # SECRET_KEY 설정
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+# corsheaders
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    # 로컬 개발용 주소
+    'http://localhost:3000', 
+    # 'http://localhost:5173', 
+    # 'http://127.0.0.1:3000', 
+    # 'http://127.0.0.1:5173',
+    # 'http://127.0.0.1:8000',
+
+]
 
 
 # Application definition
@@ -62,6 +76,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
