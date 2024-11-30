@@ -6,6 +6,7 @@ import '../assets/css/Detail.css';
 const Detail = () => {
     const { eventId } = useParams();
     const [eventDetail, setEventDetail] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const getEventDetail = async () => {
@@ -14,23 +15,41 @@ const Detail = () => {
                 setEventDetail(data);
             } catch (error) {
                 console.error("Failed to fetch event detail:", error);
+            } finally {
+                setLoading(false);
             }
         };
         getEventDetail();
     }, [eventId]);
 
-    if (!eventDetail) return <p className="loading">Loading...</p>;
+    if (loading) {
+        return (
+            <div className="detail-page">
+                <p className="loading">Loading...</p>
+            </div>
+        );
+    }
+
+    if (!eventDetail) {
+        return (
+            <div className="detail-page">
+                <p className="loading">Event not found.</p>
+            </div>
+        );
+    }
 
     return (
         <div className="detail-page">
             <div className="detail-header">
                 <h1 className="detail-title">{eventDetail.title}</h1>
             </div>
-            <img
-                src={eventDetail.event_image}
-                alt={eventDetail.title}
-                className="detail-image"
-            />
+            <div className="detail-image-container">
+                <img
+                    src={eventDetail.event_image}
+                    alt={eventDetail.title}
+                    className="detail-image"
+                />
+            </div>
             <div className="detail-content">
                 <p className="detail-description">{eventDetail.description}</p>
                 <p className="detail-date">날짜: {eventDetail.date}</p>
