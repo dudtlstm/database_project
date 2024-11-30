@@ -18,7 +18,7 @@ class EventDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Events
-        fields = ['event_id', 'title', 'date', 'description', 'location_name', 'latitude', 'longitude']
+        fields = ['event_id', 'title', 'date', 'description', 'location_name', 'latitude', 'longitude', 'event_image']
 
 class SearchEventSerializer(serializers.ModelSerializer):
     class Meta:

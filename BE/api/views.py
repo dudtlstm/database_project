@@ -41,6 +41,6 @@ class EventDetailView(APIView):
     API for retrieving detailed event information.
     """
     def get(self, request, event_id):
-        event = Events.objects.select_related('location').get(id=event_id)
+        event = Events.objects.select_related('location').get(event_id=event_id)
         serializer = EventDetailSerializer(event)
         return Response(serializer.data, status=status.HTTP_200_OK)
