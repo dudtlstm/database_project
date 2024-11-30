@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import People, Events, Relationships
+from .models import People, Events, Relationships, Locations
 
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,3 +24,8 @@ class SearchEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Events
         fields = ['event_id', 'title', 'description', 'date']
+        
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Locations
+        fields = ['location_id', 'name', 'latitude', 'longitude', 'location_image']

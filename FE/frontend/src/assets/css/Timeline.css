@@ -76,3 +76,27 @@
     font-size: 24px;
     font-family: 'Freesentation-7Bold', sans-serif;
 }
+
+/* 검색 필드 스타일 */
+.search-container {
+    width: 100%;
+    max-width: 338px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: #34c759;
+}

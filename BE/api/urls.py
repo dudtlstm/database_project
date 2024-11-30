@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PeopleListView, EventsByPersonView, SearchEventView, EventDetailView
+from .views import PeopleListView, EventsByPersonView, SearchEventView, EventDetailView, SearchAllView
 
 urlpatterns = [
     # 인물 리스트 조회
@@ -13,4 +13,6 @@ urlpatterns = [
     
     # 사건 상세 조회
     path('events/<int:event_id>/', EventDetailView.as_view(), name='event-detail'),
+    
+    path('search/', SearchAllView.as_view(), name='search-all'),
 ]
