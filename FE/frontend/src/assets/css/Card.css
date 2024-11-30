@@ -1,0 +1,63 @@
+/* 카드 컨테이너 스타일 */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  /* 카드 스타일 */
+  .card {
+    position: relative;
+    width: 338px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Freesentation-9Black', sans-serif; /* 카드 글씨체 */
+  }
+  
+  /* 카드 콘텐츠 */
+  .card-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    color: white;
+    padding: 15px;
+    font-family: 'Freesentation-9Black', sans-serif; /* 카드 내부 텍스트 글씨체 */
+  }
+  
+  /* 이름 스타일 */
+  .card-content h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  /* 설명 스타일 */
+  .card-content p {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    font-family: 'Freesentation-4Regular', sans-serif; /* 설명 글씨체 */
+  }
+  
+  /* 버튼 스타일 */
+  .card-content button {
+    background-color: transparent;
+    color: #34c759;
+    border: 1px solid #34c759;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Freesentation-9Black', sans-serif; /* 버튼 텍스트 글씨체 */
+  }
+  
+  .card-content button:hover {
+    background-color: #34c759;
+    color: white;
+  }
